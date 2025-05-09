@@ -34,12 +34,11 @@ export default async function RootLayout({
     <ClerkProvider
       publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
     >
-      |
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          <header className="flex justify-end items-center p-4 gap-4 h-16">
+          {/* <header className="flex justify-end items-center p-4 gap-4 h-16">
             <SignedOut>
               <SignInButton mode="modal" />
               <SignUpButton mode="modal" />
@@ -47,7 +46,7 @@ export default async function RootLayout({
             <SignedIn>
               <UserButton />
             </SignedIn>
-          </header>
+          </header> */}
           {children}
         </body>
       </html>
