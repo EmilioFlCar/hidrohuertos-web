@@ -1,7 +1,13 @@
 "use client";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { useSession, useUser } from "@clerk/nextjs";
 import { createClient } from "@supabase/supabase-js";
+import Header from "@/components/landing/Header";
+import Hero from "@/components/landing/Hero";
+import Course from "@/components/landing/Course";
+import HowItWorks from "@/components/landing/HowItWorks";
+import Footer from "@/components/landing/Footer";
+import Benefits from "@/components/landing/Benefits";
 
 export default function Home() {
   const [saludos, SetSaludos] = useState<any[]>([]);
@@ -54,28 +60,36 @@ export default function Home() {
   }
 
   return (
-    <div>
-      <h1>Saludos</h1>
+    // <div>
+    //   <h1>Saludos</h1>
 
-      {loading && <p>Loading...</p>}
+    //   {loading && <p>Loading...</p>}
 
-      {!loading &&
-        saludos.length > 0 &&
-        saludos.map((saludo: any) => <p key={saludo.id}>{saludo.name}</p>)}
+    //   {!loading &&
+    //     saludos.length > 0 &&
+    //     saludos.map((saludo: any) => <p key={saludo.id}>{saludo.name}</p>)}
 
-      {!loading && saludos.length === 0 && <p>No tasks found</p>}
+    //   {!loading && saludos.length === 0 && <p>No tasks found</p>}
 
-      <form onSubmit={createSaludo}>
-        <input
-          autoFocus
-          type="text"
-          name="name"
-          placeholder="Enter new task"
-          onChange={(e) => setName(e.target.value)}
-          value={name}
-        />
-        <button type="submit">Add</button>
-      </form>
-    </div>
+    //   <form onSubmit={createSaludo}>
+    //     <input
+    //       autoFocus
+    //       type="text"
+    //       name="name"
+    //       placeholder="Enter new task"
+    //       onChange={(e) => setName(e.target.value)}
+    //       value={name}
+    //     />
+    //     <button type="submit">Add</button>
+    //   </form>
+    // </div>
+    <>
+      <Header />
+      <Hero />
+      <Course />
+      <HowItWorks />
+      <Benefits />
+      <Footer />
+    </>
   );
 }

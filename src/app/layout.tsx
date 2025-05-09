@@ -8,13 +8,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { Geist, Geist_Mono } from "next/font/google";
-import Header from "@/components/landing/Header";
 import "./globals.css";
-import Hero from "@/components/landing/Hero";
-import Course from "@/components/landing/Course";
-import HowItWorks from "@/components/landing/HowItWorks";
-import Footer from "@/components/landing/Footer";
-import Benefits from "@/components/landing/Benefits";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,18 +25,18 @@ export const metadata: Metadata = {
   description: "Cultiva tus propios alimentos en casa con hidroponía",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <ClerkProvider>
       <html lang="en">
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
-          {/* <header className="flex justify-end items-center p-4 gap-4 h-16">
+          <header className="flex justify-end items-center p-4 gap-4 h-16">
             <SignedOut>
               <SignInButton mode="modal" />
               <SignUpButton mode="modal" />
@@ -50,13 +44,8 @@ export default function RootLayout({
             <SignedIn>
               <UserButton />
             </SignedIn>
-          </header> */}
-          <Header />
-          <Hero />
-          <Course />
-          <HowItWorks />
-          <Benefits />
-          <Footer />
+          </header>
+          {children}
         </body>
       </html>
     </ClerkProvider>
