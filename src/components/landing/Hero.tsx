@@ -3,7 +3,7 @@ import React from "react";
 
 function Hero() {
   return (
-    <section className="relative bg-white overflow-hidden">
+    <section className="relative overflow-hidden bg-gradient-to-b from-white to-hydrogreen">
       <div className="absolute inset-0 z-0">
         <div className="w-full h-full bg-[url('/placeholder.svg')] bg-cover bg-center opacity-20"></div>
         <div className="absolute inset-0 bg-hydrogreen"></div>
