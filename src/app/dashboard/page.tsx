@@ -1,5 +1,4 @@
 import React from "react";
-import AppHeader from "@/components/dashboard/AppHeader";
 import Header from "@/components/Header";
 
 function page() {

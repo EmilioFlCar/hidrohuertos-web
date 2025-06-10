@@ -1,9 +1,8 @@
 import { type Metadata } from "next";
-import { Theme } from "@radix-ui/themes";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Theme } from "@radix-ui/themes";
 import "./globals.css";
-import Header from "@/components/landing/LandingHeader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
