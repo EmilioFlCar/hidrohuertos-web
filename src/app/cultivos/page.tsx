@@ -2,11 +2,27 @@
 import Card from "@/components/cultivos/Card";
 import NewCropCard from "@/components/cultivos/NewCropCard";
 import NewCropModal from "@/components/cultivos/NewCropModal";
+import { createClerkSupabaseClient } from "@/lib/supabase-client";
+import { getUserCrops } from "@/services/cropService";
+import { useCropStore } from "@/store/cropStore";
+import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 
-function page() {
+function Page() {
+  const client = createClerkSupabaseClient();
+  const { user } = useUser();
+  const { crops, setCrops } = useCropStore();
+
+  useEffect(() => {
+    if (user) {
+      getUserCrops(client, user.id).then((data) => {
+        setCrops(data);
+      });
+    }
+  }, [user]);
+
   return (
     <div className="flex flex-col px-4 sm:px-6 md:px-9 py-4 sm:py-8 w-full h-full min-h-screen">
       <div className="flex flex-col sm:flex-row sm:items-center gap-4">
@@ -49,9 +65,9 @@ function page() {
         </div>
       </div>
       <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4">
-        {Array.from({ length: 10 }).map((_, index) => (
+        {crops.map((crop, index) => (
           <div className="flex justify-center" key={index}>
-            <Card />
+            <Card crop={crop} />
           </div>
         ))}
         <div className="flex justify-center">
@@ -62,4 +78,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;

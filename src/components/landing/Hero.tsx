@@ -1,30 +1,63 @@
-import { FaPlay } from "react-icons/fa";
+import { FaArrowRight, FaCheck, FaPlay } from "react-icons/fa";
 import React from "react";
+import { Button } from "@radix-ui/themes";
+import Link from "next/link";
+import { SignUpButton } from "@clerk/nextjs";
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-white to-hydrogreen">
-      <div className="absolute inset-0 z-0">
-        <div className="w-full h-full bg-[url('/placeholder.svg')] bg-cover bg-center opacity-20"></div>
-        <div className="absolute inset-0 bg-hydrogreen"></div>
-      </div>
+    <section className="w-full py-24 md:py-24 lg:pt-28 lg:pb-16 xl:py-48 bg-gradient-to-br from-white via-green-50/30 to-green-100/20">
+      <div className="container px-4 md:px-20 mx-auto max-w-7xl">
+        <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+          <div className="flex flex-col justify-center space-y-4">
+            <div className="space-y-2">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-4xl md:text-6xl xl:text-6xl/none">
+                Cultiva tus propios alimentos en casa con hidroponía
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-[600px]">
+                HidroHuertos te ayuda a cultivar alimentos frescos y saludables
+                sin tierra, ahorrando agua y espacio. Monitorea tus cultivos,
+                recibe recordatorios y aprende con nuestra comunidad.
+              </p>
+            </div>
 
-      <div className="container mx-auto px-4 py-20 md:py-32 relative z-10">
-        <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-            Cultiva en casa con hidroponía sin complicaciones
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 mb-8">
-            Nuestro kit + app te guían paso a paso para cultivar tus propios
-            alimentos de forma fácil, sostenible y sin ensuciar.
-          </p>
-          <a
-            href="#curso"
-            className="inline-flex items-center justify-center bg-white text-hydrogreen font-medium px-8 py-4 rounded-full text-lg shadow-lg hover:bg-green-50 transition-all duration-300 transform hover:scale-105"
-          >
-            Ver curso gratuito
-            <FaPlay />
-          </a>
+            <div className="flex flex-row gap-2">
+              <SignUpButton mode="modal">
+                <button className="btn px-4 py-2 text-sm font-medium text-white bg-hydrogreen rounded-md hover:bg-hydrogreen/90 transition-colors">
+                  Registrarse
+                </button>
+              </SignUpButton>
+              <Link href="#como-funciona">
+                <button className="btn">
+                  Cómo funciona
+                  <FaArrowRight className="ml-2 h-4 w-4" />
+                </button>
+              </Link>
+            </div>
+            <div className="flex flex-wrap items-center gap-4 text-sm">
+              <div className="flex items-center gap-1">
+                <FaCheck className="h-4 w-4 text-green-600" />
+                <span>Sin tierra</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <FaCheck className="h-4 w-4 text-green-600" />
+                <span>90% menos agua</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <FaCheck className="h-4 w-4 text-green-600" />
+                <span>Cultivo 40% más rápido</span>
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center">
+            <img
+              alt="Cultivo hidropónico"
+              className="aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+              height="550"
+              src="/placeholder.svg?height=550&width=550"
+              width="550"
+            />
+          </div>
         </div>
       </div>
     </section>

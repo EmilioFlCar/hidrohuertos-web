@@ -1,6 +1,7 @@
 import { create } from "zustand";
 
 export interface Crop {
+  id: string;
   plant_name: string;
   plant_type: string;
   start_date: string; // formato YYYY-MM-DD
@@ -12,3 +13,13 @@ export interface Crop {
   nutrients_frequency: string;
   ph_check_frequency: string;
 }
+
+interface CropStore {
+  crops: Crop[];
+  setCrops: (crops: Crop[]) => void;
+}
+
+export const useCropStore = create<CropStore>((set) => ({
+  crops: [],
+  setCrops: (crops: Crop[]) => set({ crops }),
+}));

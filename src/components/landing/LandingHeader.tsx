@@ -16,56 +16,50 @@ function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-10 border-b bg-white backdrop-blur supports-[backdrop-filter]:bg-white/40">
-      <div className="container flex h-16 items-center justify-between py-4 px-4 sm:px-6">
-        <div className="flex items-center gap-2">
-          <Image src="/logo.png" alt="logo" width={40} height={40} />
-          <span className="text-xl sm:text-2xl font-bold text-green-600">
+    <header className="fixed top-0 z-50 w-full bg-white/80 backdrop-blur-lg border-b border-gray-200 shadow-sm transition-all duration-300">
+      <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
+        {/* Logo */}
+        <div className="flex items-center">
+          <Image src="/logo.png" alt="Logo" width={40} height={40} />
+          <span className="text-xl font-bold tracking-tight text-green-600 sm:text-2xl">
             <span className="text-[#44aad8]">Hidro</span>
             <span className="text-hydrogreen">Huertos</span>
           </span>
         </div>
 
+        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-6">
-          <Link
-            href="#caracteristicas"
-            className="text-sm font-medium text-gray-600 hover:text-hydrogreen"
-          >
-            Características
-          </Link>
-          <Link
-            href="#como-funciona"
-            className="text-sm font-medium text-gray-800 hover:text-hydrogreen"
-          >
-            Cómo funciona
-          </Link>
-          <Link
-            href="#testimonios"
-            className="text-sm font-medium text-gray-800 hover:text-hydrogreen"
-          >
-            Testimonios
-          </Link>
-          <Link
-            href="#precios"
-            className="text-sm font-medium text-gray-800 hover:text-hydrogreen"
-          >
-            Precios
-          </Link>
-          <Link
-            href="#faq"
-            className="text-sm font-medium text-gray-800 hover:text-hydrogreen"
-          >
-            FAQ
-          </Link>
+          {[
+            ["#caracteristicas", "Características"],
+            ["#como-funciona", "Cómo funciona"],
+            ["#testimonios", "Testimonios"],
+            ["#precios", "Precios"],
+            ["#faq", "FAQ"],
+          ].map(([href, label]) => (
+            <Link
+              key={href}
+              href={href}
+              className="text-sm font-medium text-gray-700 hover:text-hydrogreen transition-colors"
+            >
+              {label}
+            </Link>
+          ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        {/* Auth & Mobile Toggle */}
+        <div className="flex items-center gap-3">
           <SignedOut>
-            <div className="hidden sm:block">
-              <SignInButton mode="modal" fallbackRedirectUrl={"/dashboard"} />
-            </div>
-            <div className="hidden sm:block">
-              <SignUpButton mode="modal" />
+            <div className="hidden sm:flex items-center gap-2">
+              <SignInButton mode="modal" fallbackRedirectUrl={"/dashboard"}>
+                <button className="px-4 py-2 text-sm font-medium text-hydrogreen hover:text-hydrogreen/80 transition-colors">
+                  Iniciar sesión
+                </button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <button className="px-4 py-2 text-sm font-medium text-white bg-hydrogreen rounded-md hover:bg-hydrogreen/90 transition-colors">
+                  Registrarse
+                </button>
+              </SignUpButton>
             </div>
           </SignedOut>
           <SignedIn>
@@ -73,67 +67,52 @@ function Header() {
           </SignedIn>
 
           <button
-            className="md:hidden text-gray-500 hover:text-gray-700 focus:outline-none"
+            className="md:hidden text-gray-600 hover:text-hydrogreen focus:outline-none"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
-              <IoMdClose size={24} />
+              <IoMdClose size={26} />
             ) : (
-              <RxHamburgerMenu size={24} />
+              <RxHamburgerMenu size={26} />
             )}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Nav */}
       {mobileMenuOpen && (
-        <div className="md:hidden py-4 px-4 border-t border-gray-100 bg-white">
-          <nav className="flex flex-col space-y-4 mb-4">
-            <Link
-              href="#caracteristicas"
-              className="text-sm font-medium text-gray-600 hover:text-hydrogreen py-2"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Características
-            </Link>
-            <Link
-              href="#como-funciona"
-              className="text-sm font-medium text-gray-800 hover:text-hydrogreen py-2"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Cómo funciona
-            </Link>
-            <Link
-              href="#testimonios"
-              className="text-sm font-medium text-gray-800 hover:text-hydrogreen py-2"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Testimonios
-            </Link>
-            <Link
-              href="#precios"
-              className="text-sm font-medium text-gray-800 hover:text-hydrogreen py-2"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Precios
-            </Link>
-            <Link
-              href="#faq"
-              className="text-sm font-medium text-gray-800 hover:text-hydrogreen py-2"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              FAQ
-            </Link>
+        <div className="md:hidden px-6 py-4 border-t border-gray-100 bg-white animate-fade-in-down">
+          <nav className="flex flex-col space-y-3 mb-4">
+            {[
+              ["#caracteristicas", "Características"],
+              ["#como-funciona", "Cómo funciona"],
+              ["#testimonios", "Testimonios"],
+              ["#precios", "Precios"],
+              ["#faq", "FAQ"],
+            ].map(([href, label]) => (
+              <Link
+                key={href}
+                href={href}
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-sm font-medium text-gray-700 hover:text-hydrogreen transition-colors"
+              >
+                {label}
+              </Link>
+            ))}
           </nav>
 
           <SignedOut>
-            <div className="flex flex-col space-y-2">
-              <div className="w-full">
-                <SignInButton mode="modal" fallbackRedirectUrl={"/dashboard"} />
-              </div>
-              <div className="w-full">
-                <SignUpButton mode="modal" />
-              </div>
+            <div className="flex flex-col gap-2">
+              <SignInButton mode="modal" fallbackRedirectUrl={"/dashboard"}>
+                <button className="w-full px-4 py-2 text-sm font-medium text-hydrogreen hover:text-hydrogreen/80 transition-colors">
+                  Iniciar sesión
+                </button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <button className="w-full px-4 py-2 text-sm font-medium text-white bg-hydrogreen rounded-md hover:bg-hydrogreen/90 transition-colors">
+                  Registrarse
+                </button>
+              </SignUpButton>
             </div>
           </SignedOut>
         </div>

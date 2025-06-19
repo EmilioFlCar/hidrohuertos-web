@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 function Footer() {
   return (
     <footer id="contacto" className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 md:px-20 max-w-7xl">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-4">
@@ -19,9 +19,9 @@ function Footer() {
               Cultiva en casa con hidroponía sin complicaciones
             </p>
             <div className="flex space-x-4">
-              <FaFacebook />
-              <FaInstagram />
-              <FaTwitter />
+              <FaFacebook className="h-5 w-5 text-gray-400 hover:text-white transition-colors" />
+              <FaInstagram className="h-5 w-5 text-gray-400 hover:text-white transition-colors" />
+              <FaTwitter className="h-5 w-5 text-gray-400 hover:text-white transition-colors" />
             </div>
           </div>
 

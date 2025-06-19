@@ -5,13 +5,16 @@ import { useCropFormStore } from "../../store/cropFormData";
 import BasicsForm from "./modalViews/BasicsForm";
 import ConfigForm from "./modalViews/ConfigForm";
 import ReminderForm from "./modalViews/ReminderForm";
-import { createClerkSupabaseClient } from "../../../lib/supabase-client";
 import { cropSchema } from "@/validation/cropSchema";
 import toast, { Toaster } from "react-hot-toast";
+import { createClerkSupabaseClient } from "@/lib/supabase-client";
+import { useUser } from "@clerk/nextjs";
+import { insertCrop } from "@/services/cropService";
 
 function NewCropModal() {
   const [currentView, setCurrentView] = useState("info");
   const client = createClerkSupabaseClient();
+  const { user } = useUser();
   const resetForm = useCropFormStore((state) => state.resetForm);
   const formData = useCropFormStore((state) => state);
 
@@ -27,7 +30,13 @@ function NewCropModal() {
         return null;
     }
   };
+
   const handleSubmit = async () => {
+    if (!user) {
+      toast.error("Debes iniciar sesión para crear un cultivo");
+      return;
+    }
+
     const { setErrors, errors, ...formData } = useCropFormStore.getState();
     const result = cropSchema.safeParse(formData);
 
@@ -41,11 +50,9 @@ function NewCropModal() {
       setErrors(fieldErrors);
       return;
     }
+
     try {
-      const { data, error } = await client.from("crops").insert({
-        ...formData,
-      });
-      if (error) throw error;
+      const data = await insertCrop(client, formData, user.id);
       toast.success("Cultivo creado con éxito");
       console.log("🚀 ~ handleSubmit ~ data:", data);
     } catch (err) {
@@ -56,9 +63,9 @@ function NewCropModal() {
     const modal = document.getElementById("my_modal_1") as HTMLDialogElement;
     modal?.close();
     resetForm();
-
     setCurrentView("info");
   };
+
   return (
     <div>
       <div>
@@ -112,7 +119,8 @@ function NewCropModal() {
           </SegmentedControl.Root>
 
           {renderContent()}
-          <div className="mt-6 flex justify-end gap-2">
+
+          <div className="flex justify-end gap-2 mt-4">
             <button
               className="px-3 py-1.5 bg-gray-200 text-gray-800 rounded-md text-sm"
               onClick={() => {

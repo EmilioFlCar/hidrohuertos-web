@@ -1,0 +1,192 @@
+[
+  {
+    "nombre": "Lechuga",
+    "tipo": "hoja",
+    "sistema": "aeroponico",
+    "tiempo_cosecha_dias": 45,
+    "cambio_agua_cada_dias": 7,
+    "nutrientes_cada_dias": 5,
+    "descripcion": "Ideal para principiantes. Crece rápido y es fácil de monitorear.",
+    "etapas": [
+      {
+        "nombre": "Germinación",
+        "descripcion": "La semilla absorbe agua y comienza a brotar y parecen las primeras raíces.",
+        "inicio": 0.0,
+        "fin": 0.2
+      },
+      {
+        "nombre": "Crecimiento",
+        "descripcion": "La lechuga crece rápido y comienza a producir hojas.",
+        "inicio": 0.2,
+        "fin": 0.6
+      },
+      {
+        "nombre": "Maduración",
+        "descripcion": "La lechuga madura y comienza a producir hojas.",
+        "inicio": 0.6,
+        "fin": 0.9
+      },
+      {
+        "nombre": "Cosecha",
+        "descripcion": "La lechuga está lista para ser cosechada.",
+        "inicio": 0.9,
+        "fin": 1.0
+      }
+    ]
+  },
+  {
+    "nombre": "Albahaca",
+    "tipo": "aromatica",
+    "sistema": "aeroponico",
+    "tiempo_cosecha_dias": 60,
+    "cambio_agua_cada_dias": 7,
+    "nutrientes_cada_dias": 5,
+    "descripcion": "Aromática muy usada en cocina. Prefiere climas cálidos y ventilación.",
+    "etapas": [
+      {
+        "nombre": "Germinación",
+        "inicio": 0.0,
+        "fin": 0.2
+      },
+      {
+        "nombre": "Crecimiento",
+        "inicio": 0.2,
+        "fin": 0.6
+      },
+      {
+        "nombre": "Maduración",
+        "inicio": 0.6,
+        "fin": 0.9
+      },
+      {
+        "nombre": "Cosecha",
+        "inicio": 0.9,
+        "fin": 1.0
+      }
+    ]
+  },
+  {
+    "nombre": "Espinaca",
+    "tipo": "hoja",
+    "sistema": "aeroponico",
+    "tiempo_cosecha_dias": 40,
+    "cambio_agua_cada_dias": 7,
+    "nutrientes_cada_dias": 5,
+    "descripcion": "Rica en hierro, crece mejor en temperaturas templadas.",
+    "etapas": [
+      {
+        "nombre": "Germinación",
+        "inicio": 0.0,
+        "fin": 0.2
+      },
+      {
+        "nombre": "Crecimiento",
+        "inicio": 0.2,
+        "fin": 0.6
+      },
+      {
+        "nombre": "Maduración",
+        "inicio": 0.6,
+        "fin": 0.9
+      },
+      {
+        "nombre": "Cosecha",
+        "inicio": 0.9,
+        "fin": 1.0
+      }
+    ]
+  },
+  {
+    "nombre": "Fresa",
+    "tipo": "fruta",
+    "sistema": "aeroponico",
+    "tiempo_cosecha_dias": 90,
+    "cambio_agua_cada_dias": 7,
+    "nutrientes_cada_dias": 5,
+    "descripcion": "Fruta popular que requiere más cuidados y ventilación adecuada.",
+    "etapas": [
+      {
+        "nombre": "Germinación",
+        "inicio": 0.0,
+        "fin": 0.2
+      },
+      {
+        "nombre": "Crecimiento",
+        "inicio": 0.2,
+        "fin": 0.6
+      },
+      {
+        "nombre": "Maduración",
+        "inicio": 0.6,
+        "fin": 0.9
+      },
+      {
+        "nombre": "Cosecha",
+        "inicio": 0.9,
+        "fin": 1.0
+      }
+    ]
+  },
+  {
+    "nombre": "Cilantro",
+    "tipo": "aromatica",
+    "sistema": "aeroponico",
+    "tiempo_cosecha_dias": 50,
+    "cambio_agua_cada_dias": 7,
+    "nutrientes_cada_dias": 5,
+    "descripcion": "Aromática sensible al calor, crece bien en sistemas controlados.",
+    "etapas": [
+      {
+        "nombre": "Germinación",
+        "inicio": 0.0,
+        "fin": 0.2
+      },
+      {
+        "nombre": "Crecimiento",
+        "inicio": 0.2,
+        "fin": 0.6
+      },
+      {
+        "nombre": "Maduración",
+        "inicio": 0.6,
+        "fin": 0.9
+      },
+      {
+        "nombre": "Cosecha",
+        "inicio": 0.9,
+        "fin": 1.0
+      }
+    ]
+  },
+  {
+    "nombre": "Kale",
+    "tipo": "hoja",
+    "sistema": "aeroponico",
+    "tiempo_cosecha_dias": 65,
+    "cambio_agua_cada_dias": 7,
+    "nutrientes_cada_dias": 5,
+    "descripcion": "Superalimento resistente, ideal para climas templados.",
+    "etapas": [
+      {
+        "nombre": "Germinación",
+        "inicio": 0.0,
+        "fin": 0.2
+      },
+      {
+        "nombre": "Crecimiento",
+        "inicio": 0.2,
+        "fin": 0.6
+      },
+      {
+        "nombre": "Maduración",
+        "inicio": 0.6,
+        "fin": 0.9
+      },
+      {
+        "nombre": "Cosecha",
+        "inicio": 0.9,
+        "fin": 1.0
+      }
+    ]
+  }
+]

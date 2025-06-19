@@ -5,9 +5,12 @@ import { MdOutlinePhoneIphone } from "react-icons/md";
 
 function Benefits() {
   return (
-    <section id="beneficios" className="py-20 bg-white scroll-mt-[80px]">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-16">
+    <section
+      id="beneficios"
+      className="py-16 md:py-20 lg:py-24 bg-green-50/40 scroll-mt-[80px]"
+    >
+      <div className="container mx-auto px-4 md:px-20 max-w-7xl">
+        <div className="text-center max-w-3xl mx-auto mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
             Beneficios de HidroHuertos
           </h2>
@@ -18,9 +21,9 @@ function Benefits() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="bg-green-50 p-6 rounded-xl">
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-green-100">
             <div className="bg-green-100 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-              <FaBuilding className="w-8 h-8 text-hydrogreen" />
+              <FaBuilding className="w-8 h-8 text-green-600" />
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">
               Ahorra espacio
@@ -30,9 +33,9 @@ function Benefits() {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-xl">
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-green-100">
             <div className="bg-green-100 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-              <IoIosWater className="w-8 h-8 text-hydrogreen" />
+              <IoIosWater className="w-8 h-8 text-green-600" />
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">Sin tierra</h3>
             <p className="text-gray-600">
@@ -40,9 +43,9 @@ function Benefits() {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-xl">
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-green-100">
             <div className="bg-green-100 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-              <MdOutlinePhoneIphone className="w-8 h-8 text-hydrogreen" />
+              <MdOutlinePhoneIphone className="w-8 h-8 text-green-600" />
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">
               Guiado por app{" "}
@@ -52,9 +55,9 @@ function Benefits() {
             </p>
           </div>
 
-          <div className="bg-green-50 p-6 rounded-xl">
+          <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-green-100">
             <div className="bg-green-100 w-14 h-14 rounded-lg flex items-center justify-center mb-4">
-              <FaSeedling className="w-8 h-8 text-hydrogreen" />
+              <FaSeedling className="w-8 h-8 text-green-600" />
             </div>
             <h3 className="text-xl font-bold text-gray-800 mb-2">
               Ideal para principiantes
