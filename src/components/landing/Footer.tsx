@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 
@@ -19,9 +20,21 @@ function Footer() {
               Cultiva en casa con hidroponía sin complicaciones
             </p>
             <div className="flex space-x-4">
-              <FaFacebook className="h-5 w-5 text-gray-400 hover:text-white transition-colors" />
-              <FaInstagram className="h-5 w-5 text-gray-400 hover:text-white transition-colors" />
-              <FaTwitter className="h-5 w-5 text-gray-400 hover:text-white transition-colors" />
+              <Link
+                href="https://www.facebook.com/profile.php?id=61574542449852"
+                target="_blank"
+              >
+                <FaFacebook className="h-5 w-5 text-gray-400 hover:text-white hover:scale-125 transition-transform duration-300" />
+              </Link>
+              <Link
+                href="https://www.instagram.com/hidrohuertos"
+                target="_blank"
+              >
+                <FaInstagram className="h-5 w-5 text-gray-400 hover:text-white hover:scale-125 transition-transform duration-300" />
+              </Link>
+              <Link href="https://x.com/Hidrohuertoscol" target="_blank">
+                <FaTwitter className="h-5 w-5 text-gray-400 hover:text-white hover:scale-125 transition-transform duration-300" />
+              </Link>
             </div>
           </div>
 
@@ -104,9 +117,9 @@ function Footer() {
           <div>
             <h3 className="font-bold text-lg mb-4">Contacto</h3>
             <ul className="space-y-2">
-              <li className="text-gray-400">info@hidrohuertos.com</li>
+              <li className="text-gray-400">hidrohuertoscol@gmail.com</li>
               <li className="text-gray-400">+57 300 123 2345</li>
-              <li className="text-gray-400">Colombia</li>
+              <li className="text-gray-400">Montería, Córdoba - CO</li>
             </ul>
           </div>
         </div>

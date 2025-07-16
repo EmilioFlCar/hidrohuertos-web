@@ -32,9 +32,9 @@ function Header() {
           {[
             ["#caracteristicas", "Características"],
             ["#como-funciona", "Cómo funciona"],
-            ["#testimonios", "Testimonios"],
-            ["#precios", "Precios"],
             ["#faq", "FAQ"],
+            // ["#testimonios", "Testimonios"],
+            // ["#precios", "Precios"],
           ].map(([href, label]) => (
             <Link
               key={href}

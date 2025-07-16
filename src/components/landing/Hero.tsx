@@ -3,10 +3,11 @@ import React from "react";
 import { Button } from "@radix-ui/themes";
 import Link from "next/link";
 import { SignUpButton } from "@clerk/nextjs";
+import Image from "next/image";
 
 function Hero() {
   return (
-    <section className="w-full py-24 md:py-24 lg:pt-28 lg:pb-16 xl:py-48 bg-gradient-to-br from-white via-green-50/30 to-green-100/20">
+    <section className="w-full py-24 md:py-32 xl:py-24 bg-gradient-to-br from-white via-green-50/30 to-green-100/20">
       <div className="container px-4 md:px-20 mx-auto max-w-7xl">
         <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
           <div className="flex flex-col justify-center space-y-4">
@@ -50,13 +51,20 @@ function Hero() {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <img
+            {/* <img
               alt="Cultivo hidropónico"
               className="aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
               height="550"
               src="/placeholder.svg?height=550&width=550"
               width="550"
-            />
+            /> */}
+            <Image
+              src={"/torre.png"}
+              alt="Cultivo hidropónico"
+              width={400}
+              height={400}
+              // className="aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
+            ></Image>
           </div>
         </div>
       </div>

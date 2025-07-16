@@ -7,6 +7,7 @@ import { getUserCrops } from "@/services/cropService";
 import { useCropStore } from "@/store/cropStore";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import React, { useEffect } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 
