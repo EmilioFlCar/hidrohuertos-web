@@ -49,7 +49,7 @@ export function calcularProgresoPorNombre(
 
   const progreso = diasTranscurridos / cultivo.tiempo_cosecha_dias;
   const prev = Math.min(Math.max(progreso, 0), 1);
-  return (prev * 100).toFixed(0); // Asegura que el valor esté entre 0 y 1
+  return parseInt((prev * 100).toFixed(0)); // Asegura que el valor esté entre 0 y 1
 }
 
 export function calcularDiasTranscurridos(fechaInicio: string): number {
