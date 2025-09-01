@@ -10,8 +10,8 @@ function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-10 border-b bg-white backdrop-blur supports-[backdrop-filter]:bg-white/40">
-      <div className="container flex h-16 items-center justify-between py-4 px-4 sm:px-6">
+    <header className="sticky top-0 z-10 shadow bg-white backdrop-blur supports-[backdrop-filter]:bg-white/40">
+      <div className="container flex h-16 items-center justify-between  sm:px-6">
         <div className="flex items-center gap-2">
           <Image src="/logo.png" alt="logo" width={40} height={40} />
           <span className="text-xl sm:text-2xl font-bold text-green-600">
@@ -23,7 +23,7 @@ function Header() {
         <nav className="hidden md:flex items-center gap-6">
           <Link
             href="/dashboard"
-            className="text-sm font-medium text-gray-600 hover:text-hydrogreen"
+            className="text-sm font-medium text-gray-800 hover:text-hydrogreen"
           >
             Dashboard
           </Link>
@@ -33,12 +33,12 @@ function Header() {
           >
             Mis cultivos
           </Link>
-          <Link
+          {/* <Link
             href="/marketplace"
             className="text-sm font-medium text-gray-800 hover:text-hydrogreen"
           >
             Marketplace
-          </Link>
+          </Link> */}
         </nav>
 
         <div className="flex items-center gap-4">
@@ -58,7 +58,7 @@ function Header() {
 
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden py-4 px-4 border-t border-gray-100 bg-white">
+        <div className="md:hidden py-4 px-6 border-t border-gray-100 bg-white">
           <nav className="flex flex-col space-y-4">
             <Link
               href="/dashboard"

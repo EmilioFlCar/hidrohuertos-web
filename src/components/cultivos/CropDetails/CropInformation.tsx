@@ -1,9 +1,12 @@
 import {
   calcularDiasRestantes,
   calcularDiasTranscurridos,
+  calcularProgresoPorNombre,
   formatearFecha,
 } from "@/utils/cropsUtils";
 import React from "react";
+import CropProgress from "./CropProgress";
+import { Progress } from "@radix-ui/themes";
 
 function CropInformation({
   plant_type,
@@ -14,11 +17,29 @@ function CropInformation({
   system_type: string;
   start_date: string;
 }) {
+  const progreso = calcularProgresoPorNombre(plant_type, start_date);
   return (
     <div className="flex flex-col p-6 rounded-lg border border-gray-200 gap-2">
       <h2 className="text-2xl font-bold tracking-tight">
         Información del cultivo
       </h2>
+      <div className="mt-4">
+        <div className="flex items-center gap-2 justify-between">
+          <div>
+            <h1>Progreso: </h1>
+          </div>
+          <div>
+            <span className="text-gray-600">{progreso + "%"}</span>
+          </div>
+        </div>
+        <Progress
+          value={Math.min(progreso, 100)}
+          max={100}
+          size="3"
+          color="green"
+          className="w-full mt-2"
+        />
+      </div>
       <div className="flex flex-col pb-2">
         <h3 className="text-sm font-medium text-gray-500">Tipo de cultivo:</h3>
         <p className="text-base">{plant_type}</p>

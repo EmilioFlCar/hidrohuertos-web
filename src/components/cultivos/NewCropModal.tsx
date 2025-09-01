@@ -72,7 +72,7 @@ function NewCropModal() {
         <Toaster />
       </div>
       <button
-        className="btn bg-[#4caf50] hover:bg-[#45a049] text-white rounded-md"
+        className="btn bg-hydrogreen hover:bg-hydrogreen text-white rounded-md"
         onClick={() => {
           const modal = document.getElementById(
             "my_modal_1",
@@ -99,21 +99,16 @@ function NewCropModal() {
             defaultValue="info"
             size={"3"}
             className="w-full"
+            variant="surface"
             onValueChange={setCurrentView}
           >
-            <SegmentedControl.Item value="info" className="text-xs sm:text-sm">
+            <SegmentedControl.Item value="info">
               Información
             </SegmentedControl.Item>
-            <SegmentedControl.Item
-              value="config"
-              className="text-xs sm:text-sm"
-            >
+            <SegmentedControl.Item value="config">
               Configuración
             </SegmentedControl.Item>
-            <SegmentedControl.Item
-              value="reminder"
-              className="text-xs sm:text-sm"
-            >
+            <SegmentedControl.Item value="reminder">
               Recordatorios
             </SegmentedControl.Item>
           </SegmentedControl.Root>

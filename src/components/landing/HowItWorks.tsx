@@ -119,14 +119,14 @@ function HowItWorks() {
 
         {/* CTA Section */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="#registro">
+          <Link href="/dashboard" className="w-full sm:w-auto">
             <button className="group bg-gradient-to-r from-green-600 to-green-700 text-white px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 font-semibold text-lg flex items-center gap-3">
-              Comenzar ahora
+              Explorar demo
               <FaArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />
             </button>
           </Link>
           <p className="text-gray-500 text-sm md:text-base">
-            ¡Es completamente gratuito!
+            ¡No necesitas una cuenta para ver cómo funciona!
           </p>
         </div>
 

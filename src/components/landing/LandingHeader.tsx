@@ -86,8 +86,8 @@ function Header() {
             {[
               ["#caracteristicas", "Características"],
               ["#como-funciona", "Cómo funciona"],
-              ["#testimonios", "Testimonios"],
-              ["#precios", "Precios"],
+              // ["#testimonios", "Testimonios"],
+              // ["#precios", "Precios"],
               ["#faq", "FAQ"],
             ].map(([href, label]) => (
               <Link

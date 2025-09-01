@@ -7,7 +7,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --hydrogreen: #4caf50;
+  /* --hydrogreen: #4caf50; */
+  --hydrogreen: #30a46c;
 }
 
 @theme inline {

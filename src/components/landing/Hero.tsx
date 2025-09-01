@@ -23,14 +23,14 @@ function Hero() {
             </div>
 
             <div className="flex flex-row gap-2">
-              <SignUpButton mode="modal">
+              {/* <SignUpButton mode="modal">
                 <button className="btn px-4 py-2 text-sm font-medium text-white bg-hydrogreen rounded-md hover:bg-hydrogreen/90 transition-colors">
                   Registrarse
                 </button>
-              </SignUpButton>
+              </SignUpButton> */}
               <Link href="#como-funciona">
                 <button className="btn">
-                  Cómo funciona
+                  ¿Cómo funciona?
                   <FaArrowRight className="ml-2 h-4 w-4" />
                 </button>
               </Link>
@@ -51,19 +51,11 @@ function Hero() {
             </div>
           </div>
           <div className="flex items-center justify-center">
-            {/* <img
-              alt="Cultivo hidropónico"
-              className="aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
-              height="550"
-              src="/placeholder.svg?height=550&width=550"
-              width="550"
-            /> */}
             <Image
               src={"/torre.png"}
               alt="Cultivo hidropónico"
               width={400}
               height={400}
-              // className="aspect-video overflow-hidden rounded-xl object-cover object-center sm:w-full lg:order-last"
             ></Image>
           </div>
         </div>

@@ -26,8 +26,8 @@ function calcularEtapasConFechas(cropType: string, initialDate: Date): Etapa[] {
 
     return {
       ...etapa,
-      fechaInicio: addDays(initialDate, diasInicio),
-      fechaFin: addDays(initialDate, diasFin),
+      fechaInicio: addDays(initialDate, diasInicio + 1),
+      fechaFin: addDays(initialDate, diasFin + 1),
     };
   });
 }
@@ -43,7 +43,7 @@ function CropGrowthStages({
 
   return (
     <div className="pt-2">
-      <h3 className="font-medium mb-3">Etapas de crecimiento</h3>
+      {/* <h3 className="font-medium mb-3">Etapas de crecimiento</h3> */}
       <div className="relative">
         <div className="absolute left-3 top-1 h-[85%] w-px bg-green-200"></div>
         <ol className="space-y-6">
@@ -57,9 +57,9 @@ function CropGrowthStages({
                 <div
                   className={`absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full border ${
                     completada
-                      ? "border-green-600 bg-green-600 text-white"
+                      ? "border-hydrogreen bg-hydrogreen text-white"
                       : enCurso
-                        ? "border-green-600 bg-white"
+                        ? "border-hydrogreen bg-white"
                         : "border-muted bg-white"
                   }`}
                 >

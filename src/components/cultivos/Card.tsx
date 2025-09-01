@@ -4,6 +4,7 @@ import {
   calcularProgresoPorNombre,
   formatearFecha,
 } from "@/utils/cropsUtils";
+import { Progress } from "@radix-ui/themes";
 import Link from "next/link";
 import React from "react";
 import { FaCalendar, FaClock, FaEye } from "react-icons/fa";
@@ -16,7 +17,7 @@ function Card({ crop }: { crop: Crop }) {
   return (
     <div className="card bg-gray-50 w-64 border-gray-200 shadow border">
       <figure className="aspect-video">
-        <img src="placeholder.svg" alt="imagen del cultivo" />
+        <img src="placeholder.png" alt="imagen del cultivo" />
       </figure>
       <div className="card-body flex gap-y-4">
         <div className="flex flex-row justify-between">
@@ -56,16 +57,16 @@ function Card({ crop }: { crop: Crop }) {
               <p className="text-xs">Progreso: </p>
             </div>
             <div>
-              <p className="text-xs font-bold">
-                {(progreso * 100).toFixed(2)}%
-              </p>
+              <p className="text-xs font-bold">{progreso} %</p>
             </div>
           </div>
-          <progress
-            className="progress"
-            value={(progreso * 100).toFixed(2)}
-            max="100"
-          ></progress>
+          <Progress
+            value={Math.min(progreso, 100)}
+            max={100}
+            size="3"
+            color="green"
+            className="w-full mt-2"
+          />
         </div>
         <Link href={`/cultivos/detalles/${crop.id}`}>
           <div className="card-actions justify-end">

@@ -59,6 +59,12 @@ function Page() {
               name="frameworks"
               aria-label="Lechuga"
             />
+            <input
+              className="btn btn-sm bg-white border-gray-300"
+              type="radio"
+              name="frameworks"
+              aria-label="Cilantro"
+            />
           </form>
         </div>
         <div className="w-full sm:w-auto">

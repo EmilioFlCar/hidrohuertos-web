@@ -22,18 +22,16 @@ function CropProgress({ crop }: CropProgressProps) {
     );
   }
 
-  const progreso = calcularProgresoPorNombre(crop.plant_type, crop.start_date);
-
   return (
     <div className="flex flex-col rounded-lg border border-gray-200">
-      <figure className="aspect-video">
+      {/* <figure className="aspect-video">
         <img src="placeholder.svg" alt="imagen del cultivo" />
-      </figure>
+      </figure> */}
       <div className="p-6">
         <div className="flex items-center gap-2 pb-2 justify-between">
           <div className="flex items-center gap-2">
-            <FaLeaf className="text-green-500" size={24} />
-            <h1 className="text-lg font-medium">Progreso del cultivo</h1>
+            <FaLeaf className="text-hydrogreen" size={24} />
+            <h1 className="text-lg font-medium">Etapas del cultivo</h1>
           </div>
           <div>
             <h1 className="text-lg text-gray-500">
@@ -42,23 +40,7 @@ function CropProgress({ crop }: CropProgressProps) {
             </h1>
           </div>
         </div>
-        <div className="mt-4">
-          <div className="flex items-center gap-2 justify-between">
-            <div>
-              <h1>Progreso: </h1>
-            </div>
-            <div>
-              <span className="text-gray-600">
-                {(progreso * 100).toFixed(1)}%
-              </span>
-            </div>
-          </div>
-          <progress
-            className="progress w-full mt-2"
-            value={progreso * 100}
-            max="100"
-          ></progress>
-        </div>
+
         <div className="flex flex-col gap-2 mt-4">
           <CropGrowthStages
             initialDate={new Date(crop.start_date)}

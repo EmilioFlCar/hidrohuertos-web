@@ -15,7 +15,7 @@ function Page({ params }: { params: Promise<{ slug: string }> }) {
   return (
     <div className="flex flex-col px-4 sm:px-6 md:px-9 py-4 sm:py-8 w-full h-full min-h-screen">
       <CropDetailHeader crop={crop} />
-      <div className="grid grid-cols-1 md:grid-cols-3 pt-4 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-3 pt-10 gap-6">
         <div className="col-span-1 md:col-span-2">
           <CropProgress crop={crop} />
         </div>
