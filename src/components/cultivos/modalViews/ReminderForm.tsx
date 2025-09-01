@@ -45,9 +45,10 @@ function ReminderForm() {
               setReminderInfo({ waterChangeFrequency: e.target.value })
             }
           >
-            <option>Cada 2 horas</option>
-            <option>Cada 4 horas</option>
-            <option>Cada 6 horas</option>
+            <option>Cada 7 días</option>
+            <option>Cada 8 días</option>
+            <option>Cada 9 días</option>
+            <option>Cada 10 días</option>
           </select>
         </div>
         <div>
@@ -62,7 +63,6 @@ function ReminderForm() {
           >
             <option>Semanal</option>
             <option>Quincenal</option>
-            <option>Mensual</option>
           </select>
         </div>
         <div>
@@ -75,9 +75,9 @@ function ReminderForm() {
               setReminderInfo({ phCheckFrequency: e.target.value })
             }
           >
-            <option>Cada 2 horas</option>
-            <option>Cada 4 horas</option>
             <option>Cada 6 horas</option>
+            <option>Cada 12 horas</option>
+            <option>Cada 24 horas</option>
           </select>
         </div>
       </div>

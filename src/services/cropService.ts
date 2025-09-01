@@ -1,6 +1,8 @@
-// services/cropService.ts
 import { CropFormData } from "@/store/cropFormData";
+import { Crop, useCropStore } from "@/store/cropStore";
 import { SupabaseClient } from "@supabase/supabase-js";
+
+const { setCrops, crops } = useCropStore.getState();
 
 export async function insertCrop(
   supabase: SupabaseClient,
@@ -30,7 +32,7 @@ export async function insertCrop(
 
   if (error) throw new Error(error.message);
 
-  return data?.[0];
+  return data;
 }
 
 export async function getUserCrops(supabase: SupabaseClient, userId: string) {
@@ -42,5 +44,8 @@ export async function getUserCrops(supabase: SupabaseClient, userId: string) {
     .eq("user_id", userId);
 
   if (error) throw new Error(error.message);
+
+  setCrops(data as Crop[]);
+
   return data;
 }

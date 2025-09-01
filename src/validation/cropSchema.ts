@@ -6,10 +6,17 @@ export const cropSchema = z.object({
   plantName: z.string().min(1, "El nombre de la planta es requerido"),
   plantType: z.string().min(1, "El tipo de planta es requerido"),
   startDate: z.preprocess(
-    (val) => (typeof val === "string" ? new Date(val) : val),
+    (val) =>
+      typeof val === "string"
+        ? val
+        : val instanceof Date
+          ? val.toISOString().split("T")[0]
+          : "",
     z
-      .date({ required_error: "La fecha de inicio es requerida" })
-      .min(today, "La fecha debe ser hoy o una fecha futura"),
+      .string()
+      .refine((val) => val >= new Date().toISOString().split("T")[0], {
+        message: "La fecha debe ser hoy o una fecha futura",
+      }),
   ),
   // description: z.string().min(1, "La descripción es requerida"),
   systemType: z.string().min(1, "El tipo de sistema es requerido"),

@@ -44,6 +44,15 @@ type CropFormState = CropFormData & {
   setErrors: (errors: Partial<Record<keyof CropFormData, string>>) => void;
 };
 
+// 1. Create a new Date object for the current local time
+const today = new Date();
+
+// 2. Format the date to 'YYYY-MM-DD' using local methods
+const day = today.getDate().toString().padStart(2, "0");
+const month = (today.getMonth() + 1).toString().padStart(2, "0");
+const year = today.getFullYear();
+const todayStr = `${year}-${month}-${day}`;
+
 const initialState: CropFormData = {
   plantName: "",
   plantType: "",
@@ -56,7 +65,6 @@ const initialState: CropFormData = {
   nutrientsFrequency: "Semanal",
   phCheckFrequency: "Cada 2 horas",
 };
-console.log(initialState);
 
 export const useCropFormStore = create<CropFormState>((set) => ({
   ...initialState,

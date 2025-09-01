@@ -1,5 +1,5 @@
 import { Card } from "@radix-ui/themes";
-import React from "react";
+import React, { useEffect } from "react";
 import MetricCard from "./summary/MetricCard";
 import { FaBell, FaCalendarCheck, FaDroplet, FaLeaf } from "react-icons/fa6";
 import { FaCheckCircle } from "react-icons/fa";
@@ -13,15 +13,30 @@ import {
 
 function SummaryPanel() {
   const crops = useCropStore((state) => state.crops);
+  const [activeCrops, setActiveCrops] = React.useState(0);
+
+  useEffect(() => {
+    crops.filter((crop) => {
+      return calcularProgresoPorNombre(crop.plant_type, crop.start_date) < 100;
+    });
+    setActiveCrops(crops.length);
+  }, [crops]);
 
   const nearHarvestCrops = crops.filter(
-    (crop) => calcularDiasRestantes(crop.plant_type, crop.start_date) < 7,
+    (crop) =>
+      calcularDiasRestantes(crop.plant_type, crop.start_date) < 7 &&
+      calcularDiasRestantes(crop.plant_type, crop.start_date) >= 0,
+  );
+
+  const finishedCrops = crops.filter(
+    (crop) =>
+      calcularProgresoPorNombre(crop.plant_type, crop.start_date) >= 100,
   );
 
   const metrics = [
     {
       title: "Cultivos activos",
-      value: 3,
+      value: activeCrops,
       icon: <FaLeaf className="w-5 h-5 text-hydrogreen" />,
       description: "Actualmente en producción",
     },
@@ -33,7 +48,7 @@ function SummaryPanel() {
     },
     {
       title: "Cultivos completados",
-      value: 0,
+      value: finishedCrops.length,
       icon: <FaCheckCircle className="w-5 h-5 text-hydrogreen" />,
       description: "Finalizados con éxito",
     },

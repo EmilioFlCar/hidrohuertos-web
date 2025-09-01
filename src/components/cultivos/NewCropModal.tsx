@@ -10,6 +10,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { createClerkSupabaseClient } from "@/lib/supabase-client";
 import { useUser } from "@clerk/nextjs";
 import { insertCrop } from "@/services/cropService";
+import { useCropStore } from "@/store/cropStore";
 
 function NewCropModal() {
   const [currentView, setCurrentView] = useState("info");
@@ -17,6 +18,7 @@ function NewCropModal() {
   const { user } = useUser();
   const resetForm = useCropFormStore((state) => state.resetForm);
   const formData = useCropFormStore((state) => state);
+  const { crops, setCrops } = useCropStore();
 
   const renderContent = () => {
     switch (currentView) {
@@ -54,7 +56,7 @@ function NewCropModal() {
     try {
       const data = await insertCrop(client, formData, user.id);
       toast.success("Cultivo creado con éxito");
-      console.log("🚀 ~ handleSubmit ~ data:", data);
+      setCrops([...crops, ...data]);
     } catch (err) {
       toast.error("Error al crear el cultivo");
       console.log("Error!", err);

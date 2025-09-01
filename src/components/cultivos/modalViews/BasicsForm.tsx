@@ -17,7 +17,7 @@ function BasicsForm() {
               type="text"
               id="name"
               className={`input input-bordered w-full ${errors.plantName ? "input-error" : ""}`}
-              placeholder="Ej: Tomate Cherry"
+              placeholder="Ej: Lechuga"
               value={plantName}
               onChange={(e) => setBasicInfo({ plantName: e.target.value })}
             />
@@ -35,7 +35,7 @@ function BasicsForm() {
               className={`select ${errors.plantType ? "select-error" : ""}`}
             >
               <option value="">Seleccionar tipo</option>
-              <option>Lechuga</option>
+              <option>Lechuga romana</option>
               <option>Tomate</option>
               <option>Cilantro</option>
             </select>

@@ -19,7 +19,8 @@ function Page() {
   useEffect(() => {
     if (user) {
       getUserCrops(client, user.id).then((data) => {
-        setCrops(data);
+        // Actualiza de manera segura el estado
+        setCrops([...crops, ...data]);
       });
     }
   }, [user]);
